@@ -1,0 +1,16 @@
+from anytree import Node, RenderTree
+from anytree.exporter import DotExporter
+from IPython.display import Image
+
+raiz = Node("/")
+nodo1 = Node("*", parent=raiz)
+nodo2 = Node("+", parent=nodo1)
+nodo3 = Node("5", parent=nodo2)
+nodo4 = Node("3", parent=nodo2)
+nodo5 = Node("2", parent=nodo1)
+nodo6 = Node("-", parent=raiz)
+nodo7 = Node("9", parent=nodo6)
+nodo8 = Node("7", parent=nodo6)
+
+for pre, fill, node in RenderTree(raiz):
+    print("%s%s" % (pre, node.name))
